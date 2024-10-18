@@ -1,56 +1,83 @@
-import React from 'react'
-import { NavLink, Route, Routes } from 'react-router-dom'
-import './App.css'
-import BookARoom from './BookARoom'
-import Bookings from './Bookings'
-import GetHotel from './GetHotel'
-import Home from './Home'
-import Hotels from './Hotels'
-import Login from './Login'
-import PageNotFound from './PageNotFound'
-import ReSchedule from './ReSchedule'
-import RegistrationPage from './RegistrationPage'
-import Review from './Review'
-import View from './View'
-import ViewCustomer from './ViewCustomer'
-import GetAllUsers from './GetAllUsers'
+import React, { useState, useEffect } from 'react';
+import { NavLink, Route, Routes, useNavigate, useParams } from 'react-router-dom';
+import './App.css';
+import BookARoom from './BookARoom';
+import Bookings from './Bookings';
+import GetHotel from './GetHotel';
+import Home from './Home';
+import Hotels from './Hotels';
+import Login from './Login';
+import PageNotFound from './PageNotFound';
+import ReSchedule from './ReSchedule';
+import RegistrationPage from './RegistrationPage';
+import Review from './Review';
+import View from './View';
+import ViewCustomer from './ViewCustomer';
+import GetAllUsers from './GetAllUsers';
+import HomeP from './HomeP';
 
 const App = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const navigate = useNavigate();
+    const id=useParams()
+
+    useEffect(() => {
+        // Check if the user is logged in on initial render
+        const token = sessionStorage.getItem('id');
+        if (id) {
+            setIsLoggedIn(true);
+        }
+    }, []);
+
+    const handleLogout = () => {
+        sessionStorage.removeItem('id');
+        setIsLoggedIn(false);
+        navigate('/login');
+    };
+
     return (
         <div>
             <div className='App'></div>
-            {/* <RegistrationPage /> */}
             <ul className='menu'>
-                <li><NavLink to="/">Home</NavLink></li>
-                <li><NavLink to="/hotels">Hotels</NavLink></li>
-                <li><NavLink to="/bookings">Bookings</NavLink></li>
-                <li><NavLink to="/view">View</NavLink></li>
-                <li><NavLink to="/Logout">Logout</NavLink></li>
+                {isLoggedIn && (
+                    <>
+                        <li><NavLink to="/homep">Home</NavLink></li>
+                        <li><NavLink to="/hotels">Hotels</NavLink></li>
+                        <li><NavLink to="/bookings">Bookings</NavLink></li>
+                        <li><NavLink to="/view">View</NavLink></li>
+                        <li><NavLink to="/login" onClick={handleLogout}>Logout</NavLink></li>
+                    </>
+                )}
+                {!isLoggedIn && (
+                    <>
+                        <li><NavLink to="/">Home</NavLink></li>
+                        <li><NavLink to="/login">Login</NavLink></li>
+                        <li><NavLink to="/register">Register</NavLink></li>
+                    </>
+                )}
             </ul>
 
             <Routes>
-                <Route index path ='/' element={<Home/>} />
-                <Route path='/register' element={<RegistrationPage/>}/>
-                <Route path='/login' element={<Login/>}/>
-                <Route path='/bookroom' element={<BookARoom/>}/>
-                <Route path='/bookroom/:id' element={<BookARoom/>}/>
-                <Route path='/hotels/:id/bookroom/:id' element={<BookARoom/>}/>
-                <Route path="/details/:id" element={<ViewCustomer/>} />
-                {/* <Route path="hotels={hotelId}/bookroom/" element={<BookARoom/>}/> */}
-                <Route path='/hotels' element={<Hotels/>}/>
-                <Route path='/hotels/:id' element={<Hotels/>}/>
-                <Route path='/review' element={<Review/>}/>
-                <Route path='/hotelDet' element={<GetHotel/>}></Route>
-                <Route path='/view' element={<View/>}></Route>
-                <Route path='/reschedule/:id' element={<ReSchedule/>}></Route>
-                {/* <Route payh='/logout' element={<Logout/>}></Route> */}
-                <Route path='/bookings' element={<Bookings/>}></Route>
-                <Route path='/getallusers' element={<GetAllUsers/>}></Route>
-                <Route path='*' element={<PageNotFound/>}></Route>
+                <Route index path="/" element={<Home />} />
+                <Route path="/register" element={<RegistrationPage />} />
+                <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} navigate={navigate} />} />
+                <Route path="/bookroom" element={<BookARoom />} />
+                <Route path="/bookroom/:id" element={<BookARoom />} />
+                <Route path="/hotels/:id/bookroom/:id" element={<BookARoom />} />
+                <Route path="/details/:id" element={<ViewCustomer />} />
+                <Route path="/hotels" element={<Hotels />} />
+                <Route path="/hotels/:id" element={<Hotels />} />
+                <Route path="/review" element={<Review />} />
+                <Route path="/hotelDet" element={<GetHotel />} />
+                <Route path="/view" element={<View />} />
+                <Route path="/reschedule/:id" element={<ReSchedule />} />
+                <Route path="/bookings" element={<Bookings />} />
+                <Route path="/getallusers" element={<GetAllUsers />} />
+                <Route path='/homep' element={<HomeP />} />
+                <Route path="*" element={<PageNotFound />} />
             </Routes>
-
         </div>
-    )
-}
+    );
+};
 
-export default App
+export default App;

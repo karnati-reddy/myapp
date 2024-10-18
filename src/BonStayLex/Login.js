@@ -64,7 +64,7 @@ const Login = (params) => {
                 let udata = response.data;
                 if (udata.password === password) {
                     // navigate(`/bookroom/` + id )
-                    navigate(`login?/hotels/:id/bookroom/:id` + id)
+                    navigate(`/hotels/:id/bookroom/:id` + id)
                     console.log("login success :" + id);
                     setSuccess("Login successfully :" + id)
                 }
