@@ -1,0 +1,164 @@
+{
+  "users": [
+    {
+      "id": "de91",
+      "Name": "maria",
+      "Address": "Bangalore,Karnataka",
+      "PhoneNo": "1234567890",
+      "email": "maria@gmail.com",
+      "password": "maria123456"
+    },
+    {
+      "id": "e090",
+      "Name": "Setna",
+      "Address": "Bangalore",
+      "PhoneNo": "1234567890",
+      "email": "setna@gmail.com",
+      "password": "Setna@123"
+    },
+    {
+      "id": "2001",
+      "Name": "Sera",
+      "Address": "Bangalore",
+      "PhoneNo": "1234567890",
+      "email": "sera@gmail.com",
+      "password": "Sera@1234"
+    },
+    {
+      "id": "bd65",
+      "Name": "Daisy",
+      "Address": "Bangalore",
+      "PhoneNo": "1234567890",
+      "email": "daisy@gmail.com",
+      "password": "Daisy@123"
+    },
+    {
+      "id": "760a",
+      "Name": "lokanth",
+      "Address": "Tirupathi",
+      "PhoneNo": "1234567891",
+      "email": "lokanath@gmail.com",
+      "password": "loki@12345"
+    },
+    {
+      "id": "e72e",
+      "Name": "PHANEENDRA",
+      "Address": "hamsavarm",
+      "PhoneNo": "7893400545",
+      "email": "kaju@gmail.com",
+      "password": "Phani@123"
+    },
+    {
+      "id": "b3ea",
+      "Name": "Bolestean",
+      "Address": "America",
+      "PhoneNo": "7893400533",
+      "email": "bolestean@gmail.com",
+      "password": "bolestean!123"
+    },
+    {
+      "id": "9d24",
+      "Name": "Alex",
+      "Address": "Canada",
+      "PhoneNo": "9900090909",
+      "email": "alex@outlook.com",
+      "password": "alex@441"
+    }
+  ],
+  "hotels": [
+    {
+      "id": "2",
+      "hotelName": "Hill Palace",
+      "city": "Kochi",
+      "description": "A cool place to relax at Lake side",
+      "amenities": "Homely Food, Sea Food, Children's Park, Boating",
+      "phoneNo": 9191919191,
+      "address": "90/1A, Kochi, Kerala",
+      "imageUrl": "3.jpg",
+      "reviews": [
+        "Must visit place. The cuisine available here is so amazing.",
+        "My favorite place to relax on my vacations"
+      ]
+    },
+    {
+      "id": "3",
+      "hotelName": "Monsoon Stay",
+      "city": "Chennai",
+      "description": "A luxurious but affordable stay as in your home",
+      "amenities": "24 hr Homely Food, Security, Children's Park",
+      "phoneNo": 9292929292,
+      "address": "100/1A, Chennai, Tamil Nadu",
+      "imageUrl": "4.jpg",
+      "reviews": []
+    },
+    {
+      "id": "4",
+      "hotelName": "Galaxy Paradise",
+      "city": "Mumbai",
+      "description": "An affordable family stay spot at the 'City' heart",
+      "amenities": "24 hr Homely Food, Swimming Pool, Security",
+      "phoneNo": 9393939393,
+      "address": "190/1B, Mumbai, Maharastra",
+      "imageUrl": "5.jpg",
+      "reviews": []
+    }
+  ],
+  "bookings": [
+    {
+      "id": "a8cb",
+      "startDate": "2024-03-22T00:00:00.000Z",
+      "endDate": "2024-03-23T00:00:00.000Z",
+      "noOfPersons": 5,
+      "noOfRooms": 2,
+      "typeOfRoom": "single with A/c"
+    },
+    {
+      "id": "8ed2",
+      "startDate": "2024-03-22T00:00:00.000Z",
+      "endDate": "2024-03-29T00:00:00.000Z",
+      "noOfPersons": 1,
+      "noOfRooms": 1,
+      "typeOfRoom": "double with A/c"
+    },
+    {
+      "id": "2ab9",
+      "startDate": "2024-03-22T00:00:00.000Z",
+      "endDate": "2024-03-22T00:00:00.000Z",
+      "noOfPersons": 2,
+      "noOfRooms": 2,
+      "typeOfRoom": "single with A/c"
+    },
+    {
+      "id": "a75b",
+      "startDate": "2024-03-22T00:00:00.000Z",
+      "endDate": "2024-03-23T00:00:00.000Z",
+      "noOfPersons": 1,
+      "noOfRooms": 1,
+      "typeOfRoom": "single with A/c"
+    },
+    {
+      "id": "4863",
+      "startDate": "2024-03-30T00:00:00.000Z",
+      "endDate": "2024-03-31T00:00:00.000Z",
+      "noOfPersons": 1,
+      "noOfRooms": 1,
+      "typeOfRoom": "suite with A/c"
+    },
+    {
+      "id": "d8c9",
+      "startDate": "2024-03-23T00:00:00.000Z",
+      "endDate": "2024-03-27T00:00:00.000Z",
+      "noOfPersons": 1,
+      "noOfRooms": 1,
+      "typeOfRoom": "double with A/c"
+    },
+    {
+      "id": "1502",
+      "startDate": "2024-03-22T00:00:00.000Z",
+      "endDate": "2024-03-23T00:00:00.000Z",
+      "noOfPersons": 1,
+      "noOfRooms": 1,
+      "typeOfRoom": "suite with A/c"
+    }
+  ]
+}

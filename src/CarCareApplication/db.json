@@ -1,0 +1,58 @@
+{
+  "bookings": [
+    {
+      "id": "4cf1",
+      "email": "ram@outlook.com",
+      "bookedOn": "2024-02-22",
+      "serviceName": "Car Service"
+    },
+    {
+      "id": "c794",
+      "email": "rrr@gmail.com",
+      "bookedOn": "2024-02-23",
+      "serviceName": "Car Repair"
+    },
+    {
+      "id": "9361",
+      "email": "ram@gmail.com",
+      "bookedOn": "2024-02-24",
+      "serviceName": "Car Service"
+    },
+    {
+      "id": "0a58",
+      "email": "malli@gmail.com",
+      "bookedOn": "2024-02-23",
+      "serviceName": "Car Wash"
+    },
+    {
+      "id": "4506",
+      "email": "nirama@gmail.com",
+      "bookedOn": "2024-02-28",
+      "serviceName": "Car Service"
+    },
+    {
+      "id": "bb0f",
+      "email": "nirama1@gmail.com",
+      "bookedOn": "2024-02-29",
+      "serviceName": "Car Service"
+    },
+    {
+      "id": "d797",
+      "email": "nirmala@gmail.com",
+      "bookedOn": "2024-02-29",
+      "serviceName": "Car Service"
+    },
+    {
+      "id": "f278",
+      "email": "nirmala@gmail.com",
+      "bookedOn": "2024-02-29",
+      "serviceName": "Car Service"
+    },
+    {
+      "id": "e50b",
+      "email": "nirmala@gmail.com",
+      "bookedOn": "2024-02-29",
+      "serviceName": "Car Service"
+    }
+  ]
+}

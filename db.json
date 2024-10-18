@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "id": "bd33",
+      "username": "VittalS",
+      "password": "vittal@123",
+      "email": "vittal@gmail.com"
+    },
+    {
+      "id": "c05d",
+      "username": "Mahesh Vallela",
+      "password": "Mahesh@88",
+      "email": "maheshvallela@gmail.com"
+    },
+    {
+      "id": "1dbb",
+      "username": "YamunaG",
+      "password": "Yamuna@infy",
+      "email": "yamunagurram@mail.com"
+    },
+    {
+      "id": "9c6a",
+      "username": "Kadari Ravikumar",
+      "password": "ravikumar",
+      "email": "ravikumar@gmail.com"
+    },
+    {
+      "id": "fc6f",
+      "username": "PhaneeA",
+      "password": "Phanee@12",
+      "email": "phanee.atti@outlook.vom"
+    },
+    {
+      "id": "1443",
+      "username": "VijayaL",
+      "password": "VijayaLak@123",
+      "email": "vijayalakshmi@outlook.com"
+    },
+    {
+      "id": "47ef",
+      "username": "Anushka",
+      "password": "anuska@&0",
+      "email": "anukska@outlook.com"
+    },
+    {
+      "id": "a731",
+      "Name": "KARNATI RAGHURAMI REDDY",
+      "Address": "Hyderabad",
+      "PhoneNo": "0950595080",
+      "email": "rakhi.jha287@gmail.com",
+      "password": "Rhjgjhgfes"
+    }
+  ]
+}

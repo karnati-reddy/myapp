@@ -1,0 +1,67 @@
+.menu
+{
+  background-color: aqua;
+  padding: 10px;
+}
+.menu li{
+  display: inline;
+}
+.menu li a
+{
+  color:#fff;
+  text-decoration: none;
+  padding:12px 20px;
+  font-weight: bold;
+  font-size: 18px;
+}
+.active
+{
+  background-color:rgb(61, 165, 42);
+
+}
+
+.table {
+  color: rgb(241, 246, 247);
+  background-image: url("./AllItemss.jpg");
+  width: 100px;
+  height: 500px;
+}
+.centre{
+text-align: center;
+}
+#form{
+  border: 5px solid rgb(107, 90, 205);
+  border-radius: 000px;
+  text-align: center;
+  text-decoration:none;
+  background-image: url("./businessregisteration.jpg");
+  width: 300;
+  height: 530px;
+  background-attachment: fixed;
+  background-clip: border-box;
+}
+#img{
+  color: rgb(255, 234, 0);
+  background-image: url("./ViewU.png");
+  height: 500px;
+
+}
+.decoration{
+  text-align: center;
+  background-image: url("./png.jpg");
+  width: auto;
+  height: 530px;
+}
+.home{
+  color:#1fde98;
+  background-image: url("./hom.jpg");
+  background-size: cover;
+  height: 530px;
+  text-align: center;
+}
+#contact{
+  color: rgb(255, 0, 195);
+  background-image: url("./contactjpg.jpg");
+  background-size: cover;
+  height: 600px;
+}
