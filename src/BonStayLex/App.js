@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Route, Routes, useNavigate, useParams } from 'react-router-dom';
+import { NavLink, Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import BookARoom from './BookARoom';
 import Bookings from './Bookings';
@@ -21,9 +21,16 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import AccountMenu from './AccountMenu';
-import { Box } from '@mui/material';
+import { Box, FormControlLabel, ThemeProvider } from '@mui/material';
+import {  useSelector } from 'react-redux';
+import { darkTheme, lightTheme } from './Themes/Theme';
+import ThemeToggle from './Themes/ThemeToggle';
 
 const App = () => {
+
+    const themeMode = useSelector((state) => state.theme.mode);
+    const appliedTheme = themeMode === 'light' ? lightTheme : darkTheme;
+
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
     // const { id } = useParams();
@@ -43,6 +50,7 @@ const App = () => {
     };
 
     return (
+        <ThemeProvider theme={appliedTheme}>
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
                 <Toolbar>
@@ -59,7 +67,8 @@ const App = () => {
                         </div>
                         
                     ) : (
-                        <div>
+                        <div>                           
+                            <FormControlLabel control={<ThemeToggle/>} />                           
                             <Button color="inherit" component={NavLink} to="/">Home</Button>
                             <Button color="inherit" component={NavLink} to="/login">Login</Button>
                             <Button color="inherit" component={NavLink} to="/register">Register</Button>
@@ -92,6 +101,7 @@ const App = () => {
                 )}
             </Routes>
        </Box>
+       </ThemeProvider>
     );
 };
 

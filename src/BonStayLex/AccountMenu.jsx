@@ -10,19 +10,8 @@ import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
-import { ThemeProvider } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleTheme } from './Slices/ThemeSlice';
-import { darkTheme, lightTheme } from './Themes/Theme';
 
 const AccountMenu = ({ handleLogout }) => {
-
-  const theme = useSelector((state) => state.theme.mode);
-  const dispatch = useDispatch();
-
-  const handleThemeToggle = () => {
-    dispatch(toggleTheme());
-  }
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -98,14 +87,12 @@ const AccountMenu = ({ handleLogout }) => {
           </ListItemIcon>
           Add another account
         </MenuItem>
-        <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-        <MenuItem onClick={handleThemeToggle}>
+        <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
-          Toggle Theme  
+          Settings
         </MenuItem>
-        </ThemeProvider>
         <MenuItem onClick={handleLogout} >
           <ListItemIcon>
             <Logout fontSize="small" />
