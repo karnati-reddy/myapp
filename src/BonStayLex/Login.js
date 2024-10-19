@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Hotels from "./Hotels";
 
-const Login = (params) => {
+const Login = ({ setIsLoggedIn }) => {
     const [id, setId] = useState('');
     const [password, setPassword] = useState('');
     // const [isLoginEnabled, setIsLoginEnabled] = useState(false); // State to control login button
@@ -11,7 +11,7 @@ const Login = (params) => {
     const [error, setErrors] = useState("")
     const navigate = useNavigate("")
     // const params = useNavigate()
-    let {ids}=params;
+    // let {ids}=params;
     const [hotels, setHotels] = useState([]);
 
     // const checkUserExistence = async () => {
@@ -64,7 +64,10 @@ const Login = (params) => {
                 let udata = response.data;
                 if (udata.password === password) {
                     // navigate(`/bookroom/` + id )
-                    navigate(`/hotels/:id/bookroom/:id` + id)
+                    // navigate(`/hotels/:id/bookroom/:id` + id)
+                    sessionStorage.setItem('id', id);
+                    setIsLoggedIn(true);
+                    navigate(`/dashboard`)
                     console.log("login success :" + id);
                     setSuccess("Login successfully :" + id)
                 }
@@ -93,6 +96,4 @@ const Login = (params) => {
         </form>
     );
 }
-export default Login;
-// Path: src/BonStayLex/Hotels.js
-// Compare this snippet from src/index.js:
+export default Login

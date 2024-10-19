@@ -162,7 +162,8 @@ const Hotels = () => {
                                         <br/>
                                         <button
                                             className="btn btn-primary me-2"
-                                            onClick={() => navigate(`/login?hotelId=${hotel.id}`)} // Pass hotel ID as query parameter
+                                            // onClick={() => navigate(`/login?hotelId=${hotel.id}`)} // Pass hotel ID as query parameter
+                                            onClick={() => navigate(`/bookroom/:id=${hotel.id}`)}
                                         >
                                             Book a Room
                                         </button>

@@ -19,12 +19,12 @@ import HomeP from './HomeP';
 const App = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
-    const id=useParams()
+    // const { id } = useParams();
 
     useEffect(() => {
         // Check if the user is logged in on initial render
         const token = sessionStorage.getItem('id');
-        if (id) {
+        if (token) {
             setIsLoggedIn(true);
         }
     }, []);
@@ -36,48 +36,56 @@ const App = () => {
     };
 
     return (
-        <div>
-            <div className='App'></div>
-            <ul className='menu'>
-                {isLoggedIn && (
-                    <>
-                        <li><NavLink to="/homep">Home</NavLink></li>
+
+        <div className='App'>
+            <div className='menu'>
+                {isLoggedIn ? (
+                    <ul>
+                        <li><NavLink to="/dashboard">Dashboard</NavLink></li>
                         <li><NavLink to="/hotels">Hotels</NavLink></li>
                         <li><NavLink to="/bookings">Bookings</NavLink></li>
                         <li><NavLink to="/view">View</NavLink></li>
-                        <li><NavLink to="/login" onClick={handleLogout}>Logout</NavLink></li>
-                    </>
-                )}
-                {!isLoggedIn && (
-                    <>
+                        <li><NavLink to="/" onClick={handleLogout}>Logout</NavLink></li>
+                    </ul>
+                ) : (
+                    <ul>
+
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/login">Login</NavLink></li>
                         <li><NavLink to="/register">Register</NavLink></li>
-                    </>
+
+                    </ul>
                 )}
-            </ul>
+            </div>
 
             <Routes>
                 <Route index path="/" element={<Home />} />
                 <Route path="/register" element={<RegistrationPage />} />
                 <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} navigate={navigate} />} />
-                <Route path="/bookroom" element={<BookARoom />} />
-                <Route path="/bookroom/:id" element={<BookARoom />} />
-                <Route path="/hotels/:id/bookroom/:id" element={<BookARoom />} />
-                <Route path="/details/:id" element={<ViewCustomer />} />
-                <Route path="/hotels" element={<Hotels />} />
-                <Route path="/hotels/:id" element={<Hotels />} />
-                <Route path="/review" element={<Review />} />
-                <Route path="/hotelDet" element={<GetHotel />} />
-                <Route path="/view" element={<View />} />
-                <Route path="/reschedule/:id" element={<ReSchedule />} />
-                <Route path="/bookings" element={<Bookings />} />
-                <Route path="/getallusers" element={<GetAllUsers />} />
-                <Route path='/homep' element={<HomeP />} />
-                <Route path="*" element={<PageNotFound />} />
+                {isLoggedIn && (
+                    <>
+                        <Route path="/bookroom" element={<BookARoom />} />
+                        <Route path="/bookroom/:id" element={<BookARoom />} />
+                        <Route path="/hotels/:id/bookroom/:id" element={<BookARoom />} />
+                        <Route path="/details/:id" element={<ViewCustomer />} />
+                        <Route path="/hotels" element={<Hotels />} />
+                        <Route path="/hotels/:id" element={<Hotels />} />
+                        <Route path="/review" element={<Review />} />
+                        <Route path="/hotelDet" element={<GetHotel />} />
+                        <Route path="/view" element={<View />} />
+                        <Route path="/reschedule/:id" element={<ReSchedule />} />
+                        <Route path="/bookings" element={<Bookings />} />
+                        <Route path="/getallusers" element={<GetAllUsers />} />
+                        <Route path='/dashboard' element={<HomeP />} />
+                        <Route path="*" element={<PageNotFound />} />
+                    </>
+                )}
+
             </Routes>
         </div>
+
+
     );
 };
 
-export default App;
+export default App

@@ -1,8 +1,32 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 const HomeP = () => {
+    const [user, setUser] = useState({Name: ""}); // Initialize user to null to avoid displaying an empty name
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                // Replace with your actual API endpoint that retrieves user data
+                const response = await axios.get(`http://localhost:4000/users/${user.Name}`); // Placeholder ID
+                setUser(response.data);
+            } catch (error) {
+                console.error(error);
+                // Handle error gracefully, e.g., display an error message to the user
+            }
+        };
+
+        fetchUser();
+    }, []);
+
     return (
         <div >
+
+            {user ? ( // Conditionally render the welcome message only if user is not null
+                <h2>Welcome, {user.Name}!</h2>
+            ) : (
+                <h2>Loading user information...</h2>
+            )}
 
             <p className='home'>
                 Bonstay always provides you an amazing and pleasant stay<br />
@@ -39,8 +63,8 @@ const HomeP = () => {
             </p>
             <h2>Contact Us</h2>
             <p>
-                Email: queries@bonstay.com <br/>
-                Phone: +91 9191919191 <br/>
+                Email: queries@bonstay.com <br />
+                Phone: +91 9191919191 <br />
                 Address: 90/1A, Kochi, Kerala
             </p>
 
