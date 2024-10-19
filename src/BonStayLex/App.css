@@ -1,5 +1,5 @@
 .menu{
-    background-color: rgb(255, 47, 231);
+    background-color: rgb(102, 255, 47);
     padding: 1px;
 }
 .menu li{
@@ -7,11 +7,11 @@
 }
 .menu::before{
     content: "Bonstay";
-    padding: 50px;
-    color: rgb(239, 242, 244);
+    padding: 30px;
+    color: rgb(31, 255, 31);
     font-weight: bolder;
     font-size: 18px;
-    font-family: cursive;
+    font-family: monospace;
 }
 .menu li a{
     color: hsl(0, 0%, 100%);

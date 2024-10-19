@@ -16,6 +16,13 @@ import ViewCustomer from './ViewCustomer';
 import GetAllUsers from './GetAllUsers';
 import HomeP from './HomeP';
 
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import AccountMenu from './AccountMenu';
+import { Box } from '@mui/material';
+
 const App = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
@@ -36,27 +43,30 @@ const App = () => {
     };
 
     return (
-
-        <div className='App'>
-            <div className='menu'>
-                {isLoggedIn ? (
-                    <ul>
-                        <li><NavLink to="/dashboard">Dashboard</NavLink></li>
-                        <li><NavLink to="/hotels">Hotels</NavLink></li>
-                        <li><NavLink to="/bookings">Bookings</NavLink></li>
-                        <li><NavLink to="/view">View</NavLink></li>
-                        <li><NavLink to="/" onClick={handleLogout}>Logout</NavLink></li>
-                    </ul>
-                ) : (
-                    <ul>
-
-                        <li><NavLink to="/">Home</NavLink></li>
-                        <li><NavLink to="/login">Login</NavLink></li>
-                        <li><NavLink to="/register">Register</NavLink></li>
-
-                    </ul>
-                )}
-            </div>
+        <Box sx={{ flexGrow: 1 }}>
+            <AppBar position="static">
+                <Toolbar>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        Bonstay Hotel
+                    </Typography>
+                    {isLoggedIn ? (
+                        <div>
+                            <Button color="inherit" component={NavLink} to="/dashboard">Dashboard</Button>
+                            <Button color="inherit" component={NavLink} to="/hotels">Hotels</Button>
+                            <Button color="inherit" component={NavLink} to="/bookings">Bookings</Button>
+                            <Button color="inherit" component={NavLink} to="/view">View</Button>
+                            <AccountMenu handleLogout={handleLogout} />
+                        </div>
+                        
+                    ) : (
+                        <div>
+                            <Button color="inherit" component={NavLink} to="/">Home</Button>
+                            <Button color="inherit" component={NavLink} to="/login">Login</Button>
+                            <Button color="inherit" component={NavLink} to="/register">Register</Button>
+                        </div>
+                    )}
+                </Toolbar>
+            </AppBar>
 
             <Routes>
                 <Route index path="/" element={<Home />} />
@@ -80,12 +90,9 @@ const App = () => {
                         <Route path="*" element={<PageNotFound />} />
                     </>
                 )}
-
             </Routes>
-        </div>
-
-
+       </Box>
     );
 };
 
-export default App
+export default App;

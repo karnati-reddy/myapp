@@ -93,6 +93,8 @@ const Login = ({ setIsLoggedIn }) => {
             {error ? <div>{error}</div> : null}
             {/* <button onClick={() => navigate("/register")}>Sign Up</button> */}
             <Link to="/register">Sign Up</Link> to create a new account.
+
+         
         </form>
     );
 }
