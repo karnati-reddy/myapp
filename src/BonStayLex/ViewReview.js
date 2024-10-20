@@ -5,7 +5,7 @@ const ViewReview = () => {
     // const navigate=useNavigate("")
     return (
         <>
-
+        <h2>I am in review page</h2>
         </>
     )
 }

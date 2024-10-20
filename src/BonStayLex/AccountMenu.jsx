@@ -75,9 +75,6 @@ const AccountMenu = ({ handleLogout }) => {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem onClick={handleClose}>
-          <Avatar /> Profile
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
           <Avatar /> My account
         </MenuItem>
         <Divider />

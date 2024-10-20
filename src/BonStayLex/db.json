@@ -63,6 +63,14 @@
       "PhoneNo": "9900090909",
       "email": "alex@outlook.com",
       "password": "alex@441"
+    },
+    {
+      "id": "1f4e",
+      "Name": "Ramakrishna S",
+      "Address": "Delhi",
+      "PhoneNo": "8000098086",
+      "email": "rs@gmail.com",
+      "password": "Ramakrishna"
     }
   ],
   "hotels": [

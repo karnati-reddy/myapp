@@ -22,9 +22,10 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import AccountMenu from './AccountMenu';
 import { Box, FormControlLabel, ThemeProvider } from '@mui/material';
-import {  useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { darkTheme, lightTheme } from './Themes/Theme';
 import ThemeToggle from './Themes/ThemeToggle';
+import ViewReview from './ViewReview';
 
 const App = () => {
 
@@ -46,62 +47,63 @@ const App = () => {
     const handleLogout = () => {
         sessionStorage.removeItem('id');
         setIsLoggedIn(false);
-        navigate('/login');
+        navigate('/');
     };
 
     return (
         <ThemeProvider theme={appliedTheme}>
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
-                <Toolbar>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Bonstay Hotel
-                    </Typography>
-                    {isLoggedIn ? (
-                        <div>
-                            <Button color="inherit" component={NavLink} to="/dashboard">Dashboard</Button>
-                            <Button color="inherit" component={NavLink} to="/hotels">Hotels</Button>
-                            <Button color="inherit" component={NavLink} to="/bookings">Bookings</Button>
-                            <Button color="inherit" component={NavLink} to="/view">View</Button>
-                            <AccountMenu handleLogout={handleLogout} />
-                        </div>
-                        
-                    ) : (
-                        <div>                           
-                            <FormControlLabel control={<ThemeToggle/>} />                           
-                            <Button color="inherit" component={NavLink} to="/">Home</Button>
-                            <Button color="inherit" component={NavLink} to="/login">Login</Button>
-                            <Button color="inherit" component={NavLink} to="/register">Register</Button>
-                        </div>
-                    )}
-                </Toolbar>
-            </AppBar>
+            <Box sx={{ flexGrow: 1 }}>
+                <AppBar position="static">
+                    <Toolbar>
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                            Bonstay Hotel
+                        </Typography>
+                        {isLoggedIn ? (
+                            <div>
+                                <Button color="inherit" component={NavLink} to="/dashboard">Dashboard</Button>
+                                <Button color="inherit" component={NavLink} to="/hotels">Hotels</Button>
+                                <Button color="inherit" component={NavLink} to="/bookings">Bookings</Button>
+                                <Button color="inherit" component={NavLink} to="/view">View</Button>
+                                <AccountMenu handleLogout={handleLogout} />
+                            </div>
 
-            <Routes>
-                <Route index path="/" element={<Home />} />
-                <Route path="/register" element={<RegistrationPage />} />
-                <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} navigate={navigate} />} />
-                {isLoggedIn && (
-                    <>
-                        <Route path="/bookroom" element={<BookARoom />} />
-                        <Route path="/bookroom/:id" element={<BookARoom />} />
-                        <Route path="/hotels/:id/bookroom/:id" element={<BookARoom />} />
-                        <Route path="/details/:id" element={<ViewCustomer />} />
-                        <Route path="/hotels" element={<Hotels />} />
-                        <Route path="/hotels/:id" element={<Hotels />} />
-                        <Route path="/review" element={<Review />} />
-                        <Route path="/hotelDet" element={<GetHotel />} />
-                        <Route path="/view" element={<View />} />
-                        <Route path="/reschedule/:id" element={<ReSchedule />} />
-                        <Route path="/bookings" element={<Bookings />} />
-                        <Route path="/getallusers" element={<GetAllUsers />} />
-                        <Route path='/dashboard' element={<HomeP />} />
-                        <Route path="*" element={<PageNotFound />} />
-                    </>
-                )}
-            </Routes>
-       </Box>
-       </ThemeProvider>
+                        ) : (
+                            <div>
+                                <FormControlLabel control={<ThemeToggle />} />
+                                <Button color="inherit" component={NavLink} to="/">Home</Button>
+                                <Button color="inherit" component={NavLink} to="/login">Login</Button>
+                                <Button color="inherit" component={NavLink} to="/register">Register</Button>
+                            </div>
+                        )}
+                    </Toolbar>
+                </AppBar>
+
+                <Routes>
+                    <Route index path="/" element={<Home />} />
+                    <Route path="/register" element={<RegistrationPage />} />
+                    <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} navigate={navigate} />} />
+                    {isLoggedIn && (
+                        <>
+                            <Route path='/dashboard' element={<HomeP />} />
+                            <Route path="/bookroom" element={<BookARoom />} />
+                            <Route path="/bookroom/:id" element={<BookARoom />} />
+                            <Route path="/hotels/:id/bookroom/:id" element={<BookARoom />} />
+                            <Route path="/details/:id" element={<ViewCustomer />} />
+                            <Route path="/hotels" element={<Hotels />} />
+                            <Route path="/hotels/:id" element={<Hotels />} />
+                            <Route path="/review" element={<Review />} />
+                            <Route path="/hotelDet" element={<GetHotel />} />
+                            <Route path="/view" element={<View />} />
+                            <Route path="/reschedule/:id" element={<ReSchedule />} />
+                            <Route path="/bookings" element={<Bookings />} />
+                            <Route path="/getallusers" element={<GetAllUsers />} />
+                            <Route path="/viewReview" element={<ViewReview/>} />
+                            <Route path="*" element={<PageNotFound />} />
+                        </>
+                    )}
+                </Routes>
+            </Box>
+        </ThemeProvider>
     );
 };
 

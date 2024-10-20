@@ -1,8 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import Hotels from './Hotels';
-import GetAllUsers from './GetAllUsers';
+import {     useNavigate, useParams } from 'react-router-dom';
 
 
 const BookARoom = () => {
@@ -16,25 +14,10 @@ const BookARoom = () => {
     const [success, setSuccess] = useState('')
     const [error, setErrors] = useState('')
     const [users, setUsers] = useState([])
-    const [errors, setError] = useState("")
     const [hotels, setHotels] = useState([]);
     const params=useParams()//object
     const navigate = useNavigate();
     let {id}=params;
-
-    // const getAllUsers = () => {
-    //     axios.get("http://localhost:4000/users" + id)
-    //         .then((result) => {
-    //             setUsers(result.data)
-    //         })
-    //         .catch(() => {
-    //             setError("Error while fetching data")
-    //         })
-    //     }
-
-    // useEffect = (() => {
-    //     getAllUsers()
-    // }, [id])
 
 
     const validateForm = () => {

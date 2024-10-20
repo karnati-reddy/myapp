@@ -30,6 +30,10 @@ h5{
     color: rgb(255, 196, 0);
     background-size: cover;
     text-align: center;
+    background-image: url("../hotesl.jpg");
+    width: auto;
+    height: 530px;
+    background-position: 0ch;
 }
 
 .img{
@@ -40,6 +44,10 @@ h5{
     width: auto;
     height: 560px;
 }
+.home{
+    background-color: #41e120;
+}
+
 .bookpage{
     text-align: center;
     background-image: url("../hotesl.jpg");

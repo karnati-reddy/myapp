@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Link as MuiLink } from '@mui/material'
 
 const RegistrationPage = () => {
     const [state, setState] = useState({ Name: "", Address: "", PhoneNo: "", email: "", password: "" })
@@ -111,12 +112,15 @@ const RegistrationPage = () => {
                     <input type='password' name='password' value={state.password} placeholder='enter password' onChange={handleChange} /><br />
                     {formErrors.password !== "" ? <p className='text-danger'>{formErrors.password}</p> : null}<br />
 
-                    <input type='submit' value="Register" disabled={!valid} /> <br/>
+                    <input type='submit' value="Register" disabled={!valid} /> <br />
                     {mandatory ? <p>Please enter all the fields</p> : null}
                     {success ? <p className='text-success'>{success}</p> : null}
                     {error ? <p className='text-success'>{error}</p> : null}
 
-                    <Link to = "/login">Login</Link> with your existing account
+                    {/* <Link to="/register">Sign Up</Link> to create a new account. */}
+                    <MuiLink href="/login" underline="none" sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}>
+                        Already have an account? Login
+                    </MuiLink>
 
                 </form>
             </div>
