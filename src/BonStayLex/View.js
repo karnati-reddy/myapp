@@ -59,7 +59,7 @@ const View = () => {
     }, []); // Empty dependency array ensures this runs only once on component mount
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }} className='view'>
             <Card sx={{ maxWidth: 400 }}>
                 <CardHeader title="View User" />
                 <CardContent>

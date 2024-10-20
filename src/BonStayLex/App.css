@@ -26,6 +26,20 @@ h5{
     color: white;
     font-family: monospace
 }
+.view{
+    background-size: cover;
+    text-align: center;
+    background-image: url("../hom.jpg");
+    width: auto;
+    height: 530px;
+}
+.dashboard{
+    background-size: cover;
+    text-align: center;
+    background-image: url("../hom.jpg");
+    width: auto;
+    height: 1000px;
+}
 .container{
     color: rgb(255, 196, 0);
     background-size: cover;

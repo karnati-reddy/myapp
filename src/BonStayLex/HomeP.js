@@ -4,50 +4,41 @@ import axios from 'axios'; // Assuming you're using axios for API calls
 import { Container, Typography, CircularProgress } from '@mui/material';
 
 const HomeP = () => {
-    const [user, setUser] = useState([]); // Initialize user to array for loading state
+    const [user, setUser] = useState(null); // Initialize user to array for loading state
     const [isLoading, setIsLoading] = useState(true); // Track loading state for feedback
 
     useEffect(() => {
-        const fetchUser = async () => {
+        const fetchData = async () => {
+            setIsLoading(true);
             try {
-                const token = sessionStorage.getItem('token'); // Replace with your token storage mechanism
-
-                if (!token) {
-                    // Handle case where user is not logged in (redirect to login?)
-                    console.warn('User is not logged in. Redirect to login page?');
-                    return;
+                const userId = sessionStorage.getItem('id');
+                if (userId) {
+                    const response = await
+                        axios.get(`http://localhost:4000/users/${userId}`); // Replace with your actual API endpoint
+                    await new Promise((resolve) => setTimeout(resolve, 1000));
+                    setUser(response.data);
+                } else {
+                    console.log("user not found in session storage");
                 }
-
-                const response = await axios.get('http://localhost:4000/users/me', {
-                    headers: {
-                        Authorization: `Bearer ${token}`, // Include token in Authorization header
-                    },
-                });
-
-                // Adjust this line to access the username property based on your API structure
-                const userName = response.data.Name || response.data.username; // Assuming username might be 'Name' or 'username' property
-
-                setUser(userName); // Update user with just the username
             } catch (error) {
-                console.error(error);
-                // Handle error gracefully, e.g., display an error message to the user
+                console.error('Error fetching user data:', error);
+                // Handle errors gracefully, e.g., show an error message
             } finally {
-                setIsLoading(false); // Ensure loading state is updated even on errors
+                setIsLoading(false);
             }
         };
-
-        fetchUser();
-    }, []); // Empty dependency array ensures useEffect runs only once
+        fetchData();
+    }, []);
 
     return (
-        <Container maxWidth="md">
+        <Container maxWidth="md" className='dashboard'>
             {isLoading ? (
                 <CircularProgress sx={{ mt: 4, mb: 4 }} />
             ) : (
                 user ? (
                     <>
-                        <Typography variant="h2" component="h2" gutterBottom>
-                            Welcome, {user.Name}!
+                        <Typography variant="h3" component="h2" color='white' gutterBottom>
+                            Welcome to Bonstay, {user.Name}!
                         </Typography>
                         {/* Other content using user data */}
                     </>

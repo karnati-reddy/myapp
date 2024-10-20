@@ -1,14 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import Hotels from './Hotels';
-// import './Bookings.css'; // Import your custom CSS file for styling
+import { useNavigate } from 'react-router-dom';
 
 const Bookings = () => {
     const [bookings, setBookings] = useState([]);
     const [cancelSuccess, setCancelSuccess] = useState('');
     const [cancelError, setCancelError] = useState('');
-    const navigate =useNavigate()
+    const navigate = useNavigate()
 
     useEffect(() => {
         axios.get('http://localhost:4000/bookings/') // Fetch booking data from API
@@ -20,10 +18,11 @@ const Bookings = () => {
             });
     }, []); // Fetch bookings only once on component mount
 
+
     const handleCancelBooking = async (bookingId) => {
         try {
             const response = await axios.delete(`http://localhost:4000/bookings/${bookingId}`);
-            setBookings(bookings.filter((booking) => booking._id !== bookingId)); // Update bookings state without re-fetching
+            setBookings(bookings.filter((booking) => booking.id !== bookingId)); // Update bookings state without re-fetching
             setCancelSuccess('Booking cancelled successfully!');
         } catch (error) {
             setCancelError('Error canceling booking. Please try again later.');
@@ -39,17 +38,14 @@ const Bookings = () => {
                 {bookings.length > 0 ? (
                     <div className="row row-cols-1 row-cols-md-2 g-4">
                         {bookings.map((booking) => (
-                            <div key={booking._id} className="col">
+                            <div key={booking.id} className="col">
                                 <div className="card h-100 shadow-sm">
-                                    {/* Add an image section if desired */}
-                                    {/* <img
-                    src="https://via.placeholder.com/300x200?text=Hotel+Image" // Replace with placehoder or actual image URL
-                    className="card-img-top"
-                    alt={booking.hotelName} // Assuming hotelName exists
-                  /> */}
                                     <div className="card-body">
                                         <h5 className="card-title">{booking.hotelName}</h5> {/* Assuming hotelName exists */}
-                                        <p>Hotel Name: </p>{Hotels.name}
+                                        {/* <p>Hotel Name: </p>{booking.hotelName} */}
+                                        <p>
+                                            <b>Booking Id:</b> {booking.id}
+                                        </p>
                                         <p>
                                             <b>Start Date:</b> {booking.startDate}
                                         </p>
@@ -69,7 +65,7 @@ const Bookings = () => {
                                     <div className="card-footer">
                                         <button
                                             className="btn btn-primary me-2"
-                                            onClick={() => navigate(`/reschedule/${booking._id}`)} // Pass booking ID as query parameter
+                                            onClick={() => navigate(`/reschedule/${booking.id}`)} // Pass booking ID as query parameter
                                         >
                                             Reschedule Booking
                                         </button>
